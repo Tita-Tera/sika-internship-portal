@@ -136,14 +136,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center w-full">
           {/* Left */}
           <div>
-            <SectionLabel>🇨🇲 Douala, Cameroon · Est. 2019</SectionLabel>
+            <SectionLabel>🇨🇲 Bamenda, Cameroon · Est. 2018</SectionLabel>
             <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] text-zinc-900 mb-6" style={{ fontFamily: 'Syne, sans-serif' }}>
               Launch Your<br />
               <span className="text-blue-600">Tech Career</span><br />
               From Day One.
             </h1>
             <p className="text-lg text-zinc-500 leading-relaxed mb-8 max-w-md">
-              Sika is Cameroon&apos;s premier tech internship programme — connecting ambitious students with real companies, real mentors, and real-world projects.
+              Sika by Tera-Tech Ltd connects you to meaningful internships that build real skills and impact. Learn, grow, contribute to projects that matter from day one and kickstart your tech career with confidence.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -249,10 +249,10 @@ export default function Home() {
               Built for students<br />who want to build.
             </h2>
             <p className="text-zinc-500 leading-relaxed mb-5">
-              Sika is a structured, mentor-led internship programme designed for Cameroonian tech students. Unlike traditional internships where interns watch from the sidelines, Sika places you in the middle of real teams working on real products from day one.
+              The sika internship program, powered by Tera-Tech Ltd, is designed to bridge the gap between academic learning and real-world tech experience. We offer structured, project-based internships where participants work on actual products, systems and research initiatives - not simulations. interns gain hands-on experience, mentorship from industry professionals, and exposure to modern tools and workflows used in today&apos;s technology ecosystem.
             </p>
             <p className="text-zinc-500 leading-relaxed mb-8">
-              Programmes run for 1 to 12 months, spanning 8 technical specialties. Every intern is paired with a senior mentor, attends weekly tech talks, and participates in a public demo day at the end of their cohort.
+              The program focuses on developing practical skills, critical thinking, and professional readiness. Whether you are a student, recent graduate, or self-taught learner, Sika provides an environment to grow, contribute, and build a strong portfolio.
             </p>
 
             {/* Timeline */}
@@ -290,30 +290,36 @@ export default function Home() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3" />
           <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-3">About Sika Group</p>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-3">About Tera-Tech Ltd</p>
               <h3 className="text-3xl font-extrabold mb-4" style={{ fontFamily: 'Syne, sans-serif' }}>
-                Sika specializes in<br />chemical technology.
+                Sika specializes in<br />System Innovation.
               </h3>
+              <p className="text-blue-100 leading-relaxed text-sm mb-3">
+                Tera-Tech Ltd is a forward-thinking technology company focused on building digital solutions that drive education, innovation and data-driven development.
+              </p>
+              <p className="text-blue-100 leading-relaxed text-sm mb-3">
+                We specialize in developing intelligent systems, educational platforms, and scalable digital infrastructure tailored to emerging markets. Our mission is to empower individuals and organizations through technology by creating tools that are practical, accessible, and impactful.
+              </p>
               <p className="text-blue-100 leading-relaxed text-sm mb-6">
-                Sika AG is a Swiss multinational specialty chemical company with a leading position in the development and production of systems and products for bonding, sealing, damping, reinforcing, and protecting in the construction and automotive sectors.
+                Through initiatives like Sika, Tera-Tech Ltd is committed to nurturing the next generation of talent by providing opportunities for hands-on learning, innovation, and real-world problem solving.
               </p>
               <a
-                href="https://www.sika.com"
+                href="https://www.teratechcompany.tech"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold text-sm px-6 py-3 rounded-xl hover:bg-blue-50 transition"
               >
                 <Globe className="w-4 h-4" />
-                Visit sika.com
+                Visit Tera-Tech Ltd
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: 'Founded',     value: '1910'         },
-                { label: 'HQ',          value: 'Baar, Switzerland' },
-                { label: 'Employees',   value: '33,000+'      },
-                { label: 'Countries',   value: '100+'         },
+                { label: 'Founded',     value: '2018'         },
+                { label: 'HQ',          value: 'Bamenda, Cameroon' },
+                { label: 'Employees',   value: '10+'      },
+                { label: 'Countries',   value: '3'         },
               ].map((item) => (
                 <div key={item.label} className="bg-white/10 rounded-2xl p-4">
                   <p className="text-[11px] text-blue-200 uppercase tracking-wide font-medium mb-1">{item.label}</p>
@@ -423,10 +429,10 @@ export default function Home() {
             {/* Contact details */}
             <div className="space-y-4">
               {[
-                { icon: <MapPin className="w-4 h-4" />,  label: 'Address',  value: 'Akwa Business District, Douala, Cameroon',      color: 'bg-blue-100 text-blue-600'    },
-                { icon: <Phone className="w-4 h-4" />,   label: 'Phone',    value: '+237 6XX XXX XXX',                               color: 'bg-emerald-100 text-emerald-600' },
-                { icon: <Mail className="w-4 h-4" />,    label: 'Email',    value: 'internships@sika-cm.com',                        color: 'bg-violet-100 text-violet-600' },
-                { icon: <Globe className="w-4 h-4" />,   label: 'Website',  value: 'www.sika.com',                                   color: 'bg-amber-100 text-amber-600'  },
+                { icon: <MapPin className="w-4 h-4" />,  label: 'Address',  value: 'Sonac Street, Bamenda, Cameroon',      color: 'bg-blue-100 text-blue-600'    },
+                { icon: <Phone className="w-4 h-4" />,   label: 'Phone',    value: '+237 678 937 645',                               color: 'bg-emerald-100 text-emerald-600' },
+                { icon: <Mail className="w-4 h-4" />,    label: 'Email',    value: 'internships@teratechcompany.tech',                        color: 'bg-violet-100 text-violet-600' },
+                { icon: <Globe className="w-4 h-4" />,   label: 'Website',  value: 'www.teratechcompany.tech',                                   color: 'bg-amber-100 text-amber-600'  },
               ].map((c) => (
                 <div key={c.label} className="flex items-center gap-4 bg-white border border-zinc-100 rounded-2xl p-4">
                   <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${c.color}`}>
@@ -444,7 +450,7 @@ export default function Home() {
                 <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-400 mb-3">Office Hours</p>
                 <div className="space-y-2">
                   {[
-                    { day: 'Monday – Friday', hours: '8:00 AM – 5:00 PM' },
+                    { day: 'Tuesday – Friday', hours: '8:00 AM – 5:00 PM' },
                     { day: 'Saturday',        hours: '9:00 AM – 1:00 PM' },
                     { day: 'Sunday',          hours: 'Closed'             },
                   ].map((h) => (
@@ -467,11 +473,11 @@ export default function Home() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Sika Office Location — Akwa, Douala"
+                title="Tera-Tech Ltd Office Location — Sonac Street, Bamenda, Cameroon"
               />
               {/* Directions button overlay */}
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Akwa,Douala,Cameroon"
+                href="https://www.google.com/maps/dir/?api=1&destination=Sonac%20Street,%20Bamenda,%20Cameroon"
                 target="_blank"
                 rel="noreferrer"
                 className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white shadow-lg border border-zinc-100 text-zinc-800 text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-zinc-50 transition whitespace-nowrap"
