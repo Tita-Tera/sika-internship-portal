@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
+import CommunitySection from './components/CommunitySection';
 
 const NAV_LINKS = [
   { label: 'Home',    href: '#home'    },
@@ -292,7 +293,7 @@ export default function Home() {
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-3">About Tera-Tech Ltd</p>
               <h3 className="text-3xl font-extrabold mb-4" style={{ fontFamily: 'Syne' }}>
-                We specializes in<br />System Innovation.
+                We specialize in<br />System Innovation.
               </h3>
               <p className="text-blue-100 leading-relaxed text-sm mb-3">
                 Tera-Tech Ltd is a forward-thinking technology company focused on building digital solutions that drive education, innovation and data-driven development.
@@ -412,6 +413,8 @@ export default function Home() {
         </Link>
       </section>
 
+      <CommunitySection />
+
       {/* ══════════════════════════════════════════════════════ CONTACT */}
       <section id="contact" className="py-24 bg-zinc-50/50 border-t border-zinc-100">
         <div className="max-w-6xl mx-auto px-6">
@@ -466,18 +469,18 @@ export default function Home() {
             {/* Map embed */}
             <div className="rounded-3xl overflow-hidden border border-zinc-100 shadow-sm h-full min-h-[420px] relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15916.07607069494!2d9.696887!3d4.050994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10610d06e5e3c17b%3A0x1c25d28eb2fa0aa3!2sAkwa%2C%20Douala!5e0!3m2!1sen!2scm!4v1700000000000!5m2!1sen!2scm"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2207.181830315072!2d10.158173215828452!3d5.958394875984753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2scm!4v1775368222091!5m2!1sen!2scm"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '420px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Tera-Tech Ltd Office Location — Sonac Street, Bamenda, Cameroon"
+                title="Tera-Tech Ltd Office Location"
               />
               {/* Directions button overlay */}
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Sonac%20Street,%20Bamenda,%20Cameroon"
+                href="https://www.google.com/maps/dir/?api=1&destination=5.958394875984753,10.158173215828452"
                 target="_blank"
                 rel="noreferrer"
                 className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white shadow-lg border border-zinc-100 text-zinc-800 text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-zinc-50 transition whitespace-nowrap"

@@ -108,7 +108,7 @@ function buildApplicationId(formData: any): string {
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '');
   const namePart = lastName ? `${firstName}_${lastName}` : firstName;
-  return `sika_${namePart}_${Date.now()}`;
+  return `teratechcompany-internship_${namePart}_${Date.now()}`;
 }
 
 type UploadField = 'cvUrl' | 'applicationLetterUrl' | 'passportPhotoUrl' | 'supportLetterUrl';

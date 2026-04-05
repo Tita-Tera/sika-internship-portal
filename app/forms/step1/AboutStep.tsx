@@ -6,7 +6,7 @@ import { AboutSchema, type AboutFormData } from '../../schemas/application';
 import { useApplicationStore } from '../../store/useApplicationStore';
 import StepWrapper from '../../components/StepWrapper';
 import { useEffect } from 'react';
-import { User, Phone, Calendar, Globe, Users } from 'lucide-react';
+import { User, Mail, Phone, Calendar, Globe, Users } from 'lucide-react';
 
 const inputClass =
   'w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all duration-150';
@@ -91,6 +91,20 @@ export default function AboutStep() {
             </div>
             {errors.lastName && <p className={errorClass}>· {errors.lastName.message}</p>}
           </div>
+        </div>
+
+        <div>
+          <label className={labelClass}>Email Address <span className="text-blue-500">*</span></label>
+          <div className="relative">
+            <FieldIcon icon={<Mail className="w-3.5 h-3.5" />} />
+            <input
+              {...register('email')}
+              type="email"
+              className={`${inputClass} pl-9`}
+              placeholder="you@example.com"
+            />
+          </div>
+          {errors.email && <p className={errorClass}>· {errors.email.message}</p>}
         </div>
 
         {/* Nationality */}

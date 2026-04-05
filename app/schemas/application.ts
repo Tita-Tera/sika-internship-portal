@@ -8,6 +8,7 @@ export const AboutSchema = z.object({
   dateOfBirth: z.string().min(1, 'Date of birth is required'),
   language: z.enum(['English', 'French']),
   gender: z.enum(['Male', 'Female']),
+  email: z.string().email('Valid email is required'),   // ← NEW
 });
 
 export type AboutFormData = z.infer<typeof AboutSchema>;

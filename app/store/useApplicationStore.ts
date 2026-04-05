@@ -6,6 +6,7 @@ export interface ApplicationFormData {
   education?: any;
   internship?: any;
   uploads?: any;
+  applicationId?: string;   // ← Add this
 }
 
 interface ApplicationState {
@@ -18,10 +19,10 @@ interface ApplicationState {
 
 export const useApplicationStore = create<ApplicationState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       currentStep: 1,
       formData: {},
-      setCurrentStep: (step) => set({ currentStep: step }),
+      setCurrentStep: (step: number) => set({ currentStep: step }),
       updateFormData: (section, data) =>
         set((state) => ({
           formData: {
@@ -33,6 +34,11 @@ export const useApplicationStore = create<ApplicationState>()(
     }),
     {
       name: 'sika-application-storage',
+      onRehydrateStorage: () => (state) => {
+        if (state && typeof state.currentStep !== 'number') {
+          state.currentStep = 1;
+        }
+      },
     }
   )
 );

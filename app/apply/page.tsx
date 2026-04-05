@@ -30,9 +30,7 @@ const InvalidStepComponent = () => <div className="text-red-500">Error: Invalid 
 
 export default function ApplyPage() {
   const { currentStep } = useApplicationStore();
-  const CurrentStepComponent =
-    STEP_COMPONENTS[currentStep] ??
-    InvalidStepComponent;
+  const CurrentStepComponent = (typeof currentStep === 'number' && STEP_COMPONENTS[currentStep]) || InvalidStepComponent;
 
   return (
     <div className="min-h-screen bg-zinc-50 flex flex-col">
