@@ -41,7 +41,7 @@ const ALUMNI = [
     role: 'Frontend Intern → Junior Dev @ TechCorp',
     avatar: 'EN',
     color: 'bg-blue-100 text-blue-700',
-    review: 'Sika gave me real production experience from week one. I shipped features used by thousands of users — nothing beats that.',
+    review: 'Tera-Tech gave me real production experience from week one. I shipped features used by thousands of users — nothing beats that.',
     project: 'E-commerce dashboard rebuild',
     stars: 5,
   },
@@ -143,7 +143,7 @@ export default function Home() {
               From Day One.
             </h1>
             <p className="text-lg text-zinc-500 leading-relaxed mb-8 max-w-md">
-              Sika by Tera-Tech Ltd connects you to meaningful internships that build real skills and impact. Learn, grow, contribute to projects that matter from day one and kickstart your tech career with confidence.
+              Tera-Tech Ltd brings you meaningful internships that build real skills and impact. Learn, grow, contribute to projects that matter from day one and kickstart your tech career with confidence.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -249,10 +249,10 @@ export default function Home() {
               Built for students<br />who want to build.
             </h2>
             <p className="text-zinc-500 leading-relaxed mb-5">
-              The sika internship program, powered by Tera-Tech Ltd, is designed to bridge the gap between academic learning and real-world tech experience. We offer structured, project-based internships where participants work on actual products, systems and research initiatives - not simulations. interns gain hands-on experience, mentorship from industry professionals, and exposure to modern tools and workflows used in today&apos;s technology ecosystem.
+              This internship program is designed to bridge the gap between academic learning and real-world tech experience. We offer structured, project-based internships where participants work on actual products, systems and research initiatives - not simulations. interns gain hands-on experience, mentorship from industry professionals, and exposure to modern tools and workflows used in today&apos;s technology ecosystem.
             </p>
             <p className="text-zinc-500 leading-relaxed mb-8">
-              The program focuses on developing practical skills, critical thinking, and professional readiness. Whether you are a student, recent graduate, or self-taught learner, Sika provides an environment to grow, contribute, and build a strong portfolio.
+              The program focuses on developing practical skills, critical thinking, and professional readiness. Whether you are a student, recent graduate, or self-taught learner, Tera-Tech Ltd provides an environment to grow, contribute, and build a strong portfolio.
             </p>
 
             {/* Timeline */}
@@ -292,7 +292,7 @@ export default function Home() {
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-3">About Tera-Tech Ltd</p>
               <h3 className="text-3xl font-extrabold mb-4" style={{ fontFamily: 'Syne, sans-serif' }}>
-                Sika specializes in<br />System Innovation.
+                We specializes in<br />System Innovation.
               </h3>
               <p className="text-blue-100 leading-relaxed text-sm mb-3">
                 Tera-Tech Ltd is a forward-thinking technology company focused on building digital solutions that drive education, innovation and data-driven development.
@@ -301,7 +301,7 @@ export default function Home() {
                 We specialize in developing intelligent systems, educational platforms, and scalable digital infrastructure tailored to emerging markets. Our mission is to empower individuals and organizations through technology by creating tools that are practical, accessible, and impactful.
               </p>
               <p className="text-blue-100 leading-relaxed text-sm mb-6">
-                Through initiatives like Sika, Tera-Tech Ltd is committed to nurturing the next generation of talent by providing opportunities for hands-on learning, innovation, and real-world problem solving.
+                Through initiatives like internships, Tera-Tech Ltd is committed to nurturing the next generation of talent by providing opportunities for hands-on learning, innovation, and real-world problem solving.
               </p>
               <a
                 href="https://www.teratechcompany.tech"

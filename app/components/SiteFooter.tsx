@@ -18,7 +18,7 @@ export default function SiteFooter() {
                 className="font-extrabold text-white text-lg"
                 style={{ fontFamily: 'Syne, sans-serif' }}
               >
-                Sika<span className="text-blue-400">.</span>
+                Tera-Tech Internship<span className="text-blue-400">.</span>
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-xs mb-5">
@@ -28,7 +28,7 @@ export default function SiteFooter() {
               {[
                 { icon: <FaLinkedin className="w-4 h-4" />, href: '#'                    },
                 { icon: <FaGithub className="w-4 h-4" />,   href: '#'                    },
-                { icon: <Globe className="w-4 h-4" />,    href: 'https://www.sika.com' },
+                { icon: <Globe className="w-4 h-4" />,    href: 'https://teratechcompany.tech' },
               ].map((s, i) => (
                 <a
                   key={i}
@@ -62,7 +62,7 @@ export default function SiteFooter() {
             <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-500 mb-4">Company</p>
             <ul className="space-y-2.5">
               {[
-                { label: 'Sika Global', href: 'https://www.sika.com' },
+                { label: 'Tera-Tech Ltd', href: 'https://teratechcompany.tech' },
                 { label: 'About us',    href: '/#about'              },
                 { label: 'Alumni',      href: '/#alumni'             },
                 { label: 'Contact',     href: '/#contact'            },
@@ -83,7 +83,7 @@ export default function SiteFooter() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
           <p className="text-xs text-zinc-500">
-            © {new Date().getFullYear()} Sika Internship Portal · Douala, Cameroon
+            © {new Date().getFullYear()} Tera-Tech Internship Portal · Bamenda, Cameroon
           </p>
           <div className="flex gap-5">
             {['Privacy Policy', 'Terms of Use', 'Accessibility'].map((t) => (

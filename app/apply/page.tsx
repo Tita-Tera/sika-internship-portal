@@ -26,11 +26,13 @@ const STEP_COMPONENTS: Record<number, React.ComponentType> = {
   5: ReviewStep,
 };
 
+const InvalidStepComponent = () => <div className="text-red-500">Error: Invalid step</div>;
+
 export default function ApplyPage() {
   const { currentStep } = useApplicationStore();
   const CurrentStepComponent =
     STEP_COMPONENTS[currentStep] ??
-    (() => <div className="text-red-500">Error: Invalid step</div>);
+    InvalidStepComponent;
 
   return (
     <div className="min-h-screen bg-zinc-50 flex flex-col">

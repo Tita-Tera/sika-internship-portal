@@ -65,7 +65,7 @@ export default function SiteHeader({ transparent = false }: { transparent?: bool
               className="font-bold text-zinc-900 text-lg tracking-tight"
               style={{ fontFamily: 'Syne, sans-serif' }}
             >
-              Sika<span className="text-blue-600">.</span>
+              Tera-Tech Ltd<span className="text-blue-600">.</span>
             </span>
           </Link>
 
