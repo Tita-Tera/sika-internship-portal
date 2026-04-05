@@ -7,6 +7,7 @@ import {
   Users, Briefcase, Star, Award, Building2,
   ArrowRight, Globe, Quote,
 } from 'lucide-react';
+import { getFontClass, colors } from '../lib/branding';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import CommunitySection from './components/CommunitySection';
@@ -138,13 +139,13 @@ export default function Home() {
           {/* Left */}
           <div>
             <SectionLabel>🇨🇲 Bamenda, Cameroon · Est. 2018</SectionLabel>
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] text-zinc-900 mb-6" style={{ fontFamily: 'Syne' }}>
+            <h1 className={`text-5xl md:text-6xl font-extrabold leading-[1.05] text-${colors.neutral[900]} mb-6`} style={getFontClass('heading')}>
               Launch Your<br />
-              <span className="text-blue-600 font-syne">Tech Career</span><br />
+              <span className={`text-${colors.primary[600]} font-syne`}>Tech Career</span><br />
               From Day One.
             </h1>
-            <p className="text-lg text-zinc-500 leading-relaxed mb-8 max-w-md">
-              Tera-Tech Ltd brings you meaningful internships that build real skills and impact. Learn, grow, contribute to projects that matter from day one and kickstart your tech career with confidence.
+            <p className={`text-lg text-${colors.neutral[500]} leading-relaxed mb-8 max-w-md`}>
+              Tera-Tech Ltd brings you meaningful internships that build real skills through systems thinking and practical innovation. Learn, grow, contribute to projects that matter from day one and kickstart your tech career with confidence.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -253,7 +254,7 @@ export default function Home() {
               This internship program is designed to bridge the gap between academic learning and real-world tech experience. We offer structured, project-based internships where participants work on actual products, systems and research initiatives - not simulations. interns gain hands-on experience, mentorship from industry professionals, and exposure to modern tools and workflows used in today&apos;s technology ecosystem.
             </p>
             <p className="text-zinc-500 leading-relaxed mb-8">
-              The program focuses on developing practical skills, critical thinking, and professional readiness. Whether you are a student, recent graduate, or self-taught learner, Tera-Tech Ltd provides an environment to grow, contribute, and build a strong portfolio.
+              The program focuses on developing practical skills, systems thinking, and execution focus. Whether you are a student, recent graduate, or self-taught learner, Tera-Tech Ltd provides an environment to grow, contribute, and build a strong portfolio through real-world problem solving.
             </p>
 
             {/* Timeline */}
@@ -292,17 +293,17 @@ export default function Home() {
           <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-3">About Tera-Tech Ltd</p>
-              <h3 className="text-3xl font-extrabold mb-4" style={{ fontFamily: 'Syne' }}>
-                We specialize in<br />System Innovation.
+              <h3 className="text-3xl font-extrabold mb-4" style={getFontClass('heading')}>
+                Building the future<br />with tech.
               </h3>
-              <p className="text-blue-100 leading-relaxed text-sm mb-3">
-                Tera-Tech Ltd is a forward-thinking technology company focused on building digital solutions that drive education, innovation and data-driven development.
+              <p className={`text-${colors.primary[100]} leading-relaxed text-sm mb-3`}>
+                Tera-Tech Ltd is a systems innovation company focused on solving real-world problems through practical, scalable, and context-driven solutions.
               </p>
-              <p className="text-blue-100 leading-relaxed text-sm mb-3">
-                We specialize in developing intelligent systems, educational platforms, and scalable digital infrastructure tailored to emerging markets. Our mission is to empower individuals and organizations through technology by creating tools that are practical, accessible, and impactful.
+              <p className={`text-${colors.primary[100]} leading-relaxed text-sm mb-3`}>
+                We connect technology with real-world systems to design, test, and scale solutions that work in real conditions. Our mission is to build solutions that work for everyday people while shaping how Africa solves its own problems.
               </p>
-              <p className="text-blue-100 leading-relaxed text-sm mb-6">
-                Through initiatives like internships, Tera-Tech Ltd is committed to nurturing the next generation of talent by providing opportunities for hands-on learning, innovation, and real-world problem solving.
+              <p className={`text-${colors.primary[100]} leading-relaxed text-sm mb-6`}>
+                Through initiatives like internships, Tera-Tech Ltd nurtures the next generation of talent by providing opportunities for hands-on learning, systems thinking, and real-world execution.
               </p>
               <a
                 href="https://www.teratechcompany.tech"

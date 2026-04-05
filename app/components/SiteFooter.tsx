@@ -20,7 +20,7 @@ export default function SiteFooter() {
                 className="font-extrabold text-white text-lg"
                 style={{ fontFamily: 'Syne, sans-serif' }}
               >
-                Tera-Tech Internship<span className="text-blue-400">.</span>
+                Tera-Tech Ltd Internship<span className="text-blue-400">.</span>
               </span>
             </div>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-xs mb-5">

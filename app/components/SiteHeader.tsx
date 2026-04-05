@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Briefcase, ArrowRight, Menu, X } from 'lucide-react';
+import { getFontClass, colors } from '../../lib/branding';
 
 const NAV_LINKS = [
   { label: 'Home',    href: '/#home'    },
@@ -64,10 +65,10 @@ export default function SiteHeader({ transparent = false }: { transparent?: bool
               className="w-8 h-8 rounded-lg object-cover"
             />
             <span
-              className="font-bold text-zinc-900 text-lg tracking-tight"
-              style={{ fontFamily: 'Syne, sans-serif' }}
+              className={`font-bold text-${colors.neutral[900]} text-lg tracking-tight`}
+              style={getFontClass('heading')}
             >
-              Tera-Tech Ltd<span className="text-blue-600">.</span>
+              Tera-Tech Ltd<span className={`text-${colors.primary[600]}`}>.</span>
             </span>
           </Link>
 
