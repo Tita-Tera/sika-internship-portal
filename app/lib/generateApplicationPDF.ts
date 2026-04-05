@@ -1,6 +1,7 @@
 import jsPDF from 'jspdf';
+import { ApplicationFormData } from '../types/application';
 
-export async function generateApplicationPDF(formData: any): Promise<Blob> {
+export async function generateApplicationPDF(formData: ApplicationFormData): Promise<Blob> {
   const doc = new jsPDF();
   let y = 20;
   const pageWidth = doc.internal.pageSize.getWidth();

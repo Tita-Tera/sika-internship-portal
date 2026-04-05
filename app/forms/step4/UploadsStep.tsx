@@ -8,6 +8,7 @@ import StepWrapper from '../../components/StepWrapper';
 import { useEffect, useRef, useState } from 'react';
 import { Upload, FileText, Image as ImageIcon, Link as LinkIcon, CheckCircle2, X, Loader2 } from 'lucide-react';
 import { uploadToCloudinary } from '../../lib/cloudinary';
+import { ApplicationFormData } from '../../types/application';
 
 const inputClass =
   'w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-2 focus:ring-amber-100 transition-all duration-150';
@@ -100,11 +101,11 @@ function UploadCard({
  * Pattern: sika_{firstName}_{lastName}_{timestamp}
  * e.g.    sika_elizabeth_ngum_1775264866435
  */
-function buildApplicationId(formData: any): string {
-  const firstName = (formData?.about?.firstName || 'applicant')
+function buildApplicationId(formData: Partial<ApplicationFormData>): string {
+  const firstName = (formData.about?.firstName || 'applicant')
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '');
-  const lastName = (formData?.about?.lastName || '')
+  const lastName = (formData.about?.lastName || '')
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '');
   const namePart = lastName ? `${firstName}_${lastName}` : firstName;
@@ -136,13 +137,13 @@ export default function UploadsStep() {
    * generates a different ID each time, splitting files across folders.
    */
   const applicationIdRef = useRef<string>(
-    (formData as any)?.applicationId ?? buildApplicationId(formData)
+    formData.applicationId ?? buildApplicationId(formData)
   );
 
   // Persist the ID into Zustand (→ localStorage) once on mount.
   useEffect(() => {
-    if (!(formData as any)?.applicationId) {
-      updateFormData('applicationId' as any, applicationIdRef.current);
+    if (!formData.applicationId) {
+      updateFormData('applicationId', applicationIdRef.current);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -169,7 +170,7 @@ export default function UploadsStep() {
   useEffect(() => {
     if (formData.uploads && Object.keys(formData.uploads).length > 0) {
       reset(formData.uploads as UploadsFormData);
-      const u = formData.uploads as any;
+      const u = formData.uploads;
       const names: Record<string, string> = {};
       if (u.cvUrl)                names.cvUrl                = 'Previously uploaded';
       if (u.applicationLetterUrl) names.applicationLetterUrl = 'Previously uploaded';

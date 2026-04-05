@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { sendConfirmationEmail } from '../../lib/sendConfirmationEmail';
+import { ReviewSection } from '../../components/ReviewSection';
+import { ApplicationFormData, AboutData, EducationData, InternshipData, UploadsData } from '../../types/application';
 
 // ─── Success Modal ────────────────────────────────────────────────────────────
 
@@ -129,18 +131,18 @@ export default function ReviewStep() {
   const { formData, setCurrentStep, resetForm } = useApplicationStore();
   const [showModal, setShowModal] = useState(false);
 
-  const about      = formData.about      || {};
-  const education  = formData.education  || {};
-  const internship = formData.internship || {};
-  const uploads    = formData.uploads    || {};
+  const about      = formData.about as AboutData;
+  const education  = formData.education as EducationData;
+  const internship = formData.internship as InternshipData;
+  const uploads    = formData.uploads as UploadsData;
 
   const handleFinalSubmit = async () => {
     try {
       // 1. Generate PDF
-      const pdfBlob = await generateApplicationPDF(formData);
+      const pdfBlob = await generateApplicationPDF(formData as ApplicationFormData);
 
       // 2. Upload PDF (same folder)
-      const applicationId = (formData as any)?.applicationId || 
+      const applicationId = formData.applicationId || 
                            `teratechcompany-internship_${(formData.about?.firstName || 'applicant').toLowerCase()}_${Date.now()}`;
 
       const pdfFile = new File([pdfBlob], `${applicationId}-application-summary.pdf`, { 
@@ -175,9 +177,10 @@ export default function ReviewStep() {
       console.log('✅ Full submission completed successfully!');
       setShowModal(true);
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Submission error:', error);
-      alert(`Submission failed: ${error.message || 'Please try again'}`);
+      const message = error instanceof Error ? error.message : 'Please try again';
+      alert(`Submission failed: ${message}`);
     }
   };
 
@@ -281,46 +284,34 @@ export default function ReviewStep() {
 
         <div className="space-y-4">
           {sections.map((section) => {
-            const c = colorMap[section.color];
-            return (
-              <div key={section.step} className="group border border-zinc-100 rounded-2xl overflow-hidden hover:border-zinc-200 hover:shadow-sm transition-all duration-200">
-                {/* Section Header */}
-                <div className="flex items-center justify-between px-5 py-4 bg-zinc-50/60 border-b border-zinc-100">
-                  <div className="flex items-center gap-3">
-                    <span className={`w-7 h-7 rounded-lg flex items-center justify-center ${c.icon}`}>
-                      {section.icon}
-                    </span>
-                    <div>
-                      <span className="text-sm font-semibold text-zinc-800">{section.title}</span>
-                      <span className={`ml-2 text-[11px] font-medium px-2 py-0.5 rounded-full border ${c.pill}`}>
-                        Step {section.step}
+            if (section.isDocuments) {
+              const c = colorMap[section.color];
+              return (
+                <div key={section.step} className="group border border-zinc-100 rounded-2xl overflow-hidden hover:border-zinc-200 hover:shadow-sm transition-all duration-200">
+                  {/* Section Header */}
+                  <div className="flex items-center justify-between px-5 py-4 bg-zinc-50/60 border-b border-zinc-100">
+                    <div className="flex items-center gap-3">
+                      <span className={`w-7 h-7 rounded-lg flex items-center justify-center ${c.icon}`}>
+                        {section.icon}
                       </span>
+                      <div>
+                        <span className="text-sm font-semibold text-zinc-800">{section.title}</span>
+                        <span className={`ml-2 text-[11px] font-medium px-2 py-0.5 rounded-full border ${c.pill}`}>
+                          Step {section.step}
+                        </span>
+                      </div>
                     </div>
+                    <button
+                      onClick={() => setCurrentStep(section.step)}
+                      className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-all ${c.editBtn}`}
+                    >
+                      <PencilLine className="w-3 h-3" />
+                      Edit
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setCurrentStep(section.step)}
-                    className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-all ${c.editBtn}`}
-                  >
-                    <PencilLine className="w-3 h-3" />
-                    Edit
-                  </button>
-                </div>
 
-                {/* Section Body */}
-                <div className="px-5 py-4">
-                  {!section.isDocuments ? (
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-3">
-                      {section.fields!.filter(f => f.value).map((field) => (
-                        <div key={field.label} className="flex flex-col gap-0.5">
-                          <span className="text-[11px] font-medium text-zinc-400 uppercase tracking-wide">{field.label}</span>
-                          <span className="text-sm text-zinc-800 font-medium">{field.value}</span>
-                        </div>
-                      ))}
-                      {section.fields!.filter(f => f.value).length === 0 && (
-                        <p className="text-sm text-zinc-400 col-span-2 italic">No information provided yet.</p>
-                      )}
-                    </div>
-                  ) : (
+                  {/* Section Body */}
+                  <div className="px-5 py-4">
                     <div className="space-y-4">
                       <div className="flex gap-6 items-start">
                         {/* Passport photo */}
@@ -373,10 +364,22 @@ export default function ReviewStep() {
                         </div>
                       )}
                     </div>
-                  )}
+                  </div>
                 </div>
-              </div>
-            );
+              );
+            } else {
+              return (
+                <ReviewSection
+                  key={section.step}
+                  step={section.step}
+                  icon={section.icon}
+                  title={section.title}
+                  color={section.color}
+                  fields={section.fields!}
+                  onEdit={() => setCurrentStep(section.step)}
+                />
+              );
+            }
           })}
         </div>
 

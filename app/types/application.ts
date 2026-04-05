@@ -6,6 +6,7 @@ export interface AboutData {
   dateOfBirth: string;
   language: 'English' | 'French';
   gender: 'Male' | 'Female';
+  email: string;
 }
 
 export interface EducationData {
@@ -42,6 +43,7 @@ export interface ApplicationFormData {
   education: EducationData;
   internship: InternshipData;
   uploads: UploadsData;
+  applicationId?: string;
 }
 
 export type StepProps = {

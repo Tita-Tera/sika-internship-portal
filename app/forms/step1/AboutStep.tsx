@@ -7,21 +7,7 @@ import { useApplicationStore } from '../../store/useApplicationStore';
 import StepWrapper from '../../components/StepWrapper';
 import { useEffect } from 'react';
 import { User, Mail, Phone, Calendar, Globe, Users } from 'lucide-react';
-
-const inputClass =
-  'w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all duration-150';
-
-const labelClass = 'block text-[11px] font-semibold text-zinc-400 uppercase tracking-widest mb-1.5';
-
-const errorClass = 'text-red-500 text-xs mt-1.5 flex items-center gap-1';
-
-function FieldIcon({ icon }: { icon: React.ReactNode }) {
-  return (
-    <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">
-      {icon}
-    </div>
-  );
-}
+import { FormField, SelectField } from '../../components/form/FormField';
 
 export default function AboutStep() {
   const { updateFormData, formData } = useApplicationStore();
@@ -67,111 +53,57 @@ export default function AboutStep() {
 
         {/* Name row */}
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={labelClass}>First Name <span className="text-blue-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<User className="w-3.5 h-3.5" />} />
-              <input
-                {...register('firstName')}
-                className={`${inputClass} pl-9`}
-                placeholder="John"
-              />
-            </div>
-            {errors.firstName && <p className={errorClass}>· {errors.firstName.message}</p>}
-          </div>
-          <div>
-            <label className={labelClass}>Last Name <span className="text-blue-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<User className="w-3.5 h-3.5" />} />
-              <input
-                {...register('lastName')}
-                className={`${inputClass} pl-9`}
-                placeholder="Doe"
-              />
-            </div>
-            {errors.lastName && <p className={errorClass}>· {errors.lastName.message}</p>}
-          </div>
+          <FormField label="First Name" required error={errors.firstName} icon={<User className="w-3.5 h-3.5" />}>
+            <input {...register('firstName')} placeholder="John" />
+          </FormField>
+          <FormField label="Last Name" required error={errors.lastName} icon={<User className="w-3.5 h-3.5" />}>
+            <input {...register('lastName')} placeholder="Doe" />
+          </FormField>
         </div>
 
-        <div>
-          <label className={labelClass}>Email Address <span className="text-blue-500">*</span></label>
-          <div className="relative">
-            <FieldIcon icon={<Mail className="w-3.5 h-3.5" />} />
-            <input
-              {...register('email')}
-              type="email"
-              className={`${inputClass} pl-9`}
-              placeholder="you@example.com"
-            />
-          </div>
-          {errors.email && <p className={errorClass}>· {errors.email.message}</p>}
-        </div>
+        <FormField label="Email Address" required error={errors.email} icon={<Mail className="w-3.5 h-3.5" />}>
+          <input {...register('email')} type="email" placeholder="you@example.com" />
+        </FormField>
 
         {/* Nationality */}
-        <div>
-          <label className={labelClass}>Nationality <span className="text-blue-500">*</span></label>
-          <div className="relative">
-            <FieldIcon icon={<Globe className="w-3.5 h-3.5" />} />
-            <input
-              {...register('nationality')}
-              className={`${inputClass} pl-9`}
-              placeholder="e.g. Cameroonian"
-            />
-          </div>
-          {errors.nationality && <p className={errorClass}>· {errors.nationality.message}</p>}
-        </div>
+        <FormField label="Nationality" required error={errors.nationality} icon={<Globe className="w-3.5 h-3.5" />}>
+          <input {...register('nationality')} placeholder="e.g. Cameroonian" />
+        </FormField>
 
         {/* Phone + DOB */}
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={labelClass}>WhatsApp Phone <span className="text-blue-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<Phone className="w-3.5 h-3.5" />} />
-              <input
-                {...register('phone')}
-                type="tel"
-                className={`${inputClass} pl-9`}
-                placeholder="+237 6XX XXX XXX"
-              />
-            </div>
-            {errors.phone && <p className={errorClass}>· {errors.phone.message}</p>}
-          </div>
-          <div>
-            <label className={labelClass}>Date of Birth <span className="text-blue-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<Calendar className="w-3.5 h-3.5" />} />
-              <input
-                {...register('dateOfBirth')}
-                type="date"
-                className={`${inputClass} pl-9`}
-              />
-            </div>
-            {errors.dateOfBirth && <p className={errorClass}>· {errors.dateOfBirth.message}</p>}
-          </div>
+          <FormField label="WhatsApp Phone" required error={errors.phone} icon={<Phone className="w-3.5 h-3.5" />}>
+            <input {...register('phone')} type="tel" placeholder="+237 6XX XXX XXX" />
+          </FormField>
+          <FormField label="Date of Birth" required error={errors.dateOfBirth} icon={<Calendar className="w-3.5 h-3.5" />}>
+            <input {...register('dateOfBirth')} type="date" />
+          </FormField>
         </div>
 
         {/* Language + Gender */}
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={labelClass}>Preferred Language <span className="text-blue-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<Globe className="w-3.5 h-3.5" />} />
-              <select {...register('language')} className={`${inputClass} pl-9 appearance-none`}>
-                <option value="English">English</option>
-                <option value="French">French</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label className={labelClass}>Gender <span className="text-blue-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<Users className="w-3.5 h-3.5" />} />
-              <select {...register('gender')} className={`${inputClass} pl-9 appearance-none`}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-              </select>
-            </div>
-          </div>
+          <SelectField
+            label="Preferred Language"
+            required
+            error={errors.language}
+            icon={<Globe className="w-3.5 h-3.5" />}
+            {...register('language')}
+            options={[
+              { value: 'English', label: 'English' },
+              { value: 'French', label: 'French' },
+            ]}
+          />
+          <SelectField
+            label="Gender"
+            required
+            error={errors.gender}
+            icon={<Users className="w-3.5 h-3.5" />}
+            {...register('gender')}
+            options={[
+              { value: 'Male', label: 'Male' },
+              { value: 'Female', label: 'Female' },
+            ]}
+          />
         </div>
 
         {/* Helper note */}

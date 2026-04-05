@@ -7,21 +7,7 @@ import { useApplicationStore } from '../../store/useApplicationStore';
 import StepWrapper from '../../components/StepWrapper';
 import { useEffect } from 'react';
 import { GraduationCap, MapPin, BookOpen, Layers } from 'lucide-react';
-
-const inputClass =
-  'w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-violet-400 focus:bg-white focus:ring-2 focus:ring-violet-100 transition-all duration-150';
-
-const labelClass = 'block text-[11px] font-semibold text-zinc-400 uppercase tracking-widest mb-1.5';
-
-const errorClass = 'text-red-500 text-xs mt-1.5';
-
-function FieldIcon({ icon }: { icon: React.ReactNode }) {
-  return (
-    <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">
-      {icon}
-    </div>
-  );
-}
+import { FormField, SelectField, inputClass } from '../../components/form/FormField';
 
 export default function EducationStep() {
   const { updateFormData, formData } = useApplicationStore();
@@ -65,79 +51,53 @@ export default function EducationStep() {
       <div className="space-y-5">
 
         {/* School name */}
-        <div>
-          <label className={labelClass}>School / University <span className="text-violet-500">*</span></label>
-          <div className="relative">
-            <FieldIcon icon={<GraduationCap className="w-3.5 h-3.5" />} />
-            <input
-              {...register('schoolName')}
-              className={`${inputClass} pl-9`}
-              placeholder="University of Douala"
-            />
-          </div>
-          {errors.schoolName && <p className={errorClass}>· {errors.schoolName.message}</p>}
-        </div>
+        <FormField label="School / University" required error={errors.schoolName} icon={<GraduationCap className="w-3.5 h-3.5" />}>
+          <input {...register('schoolName')} placeholder="University of Douala" />
+        </FormField>
 
         {/* Location */}
-        <div>
-          <label className={labelClass}>School Location <span className="text-violet-500">*</span></label>
-          <div className="relative">
-            <FieldIcon icon={<MapPin className="w-3.5 h-3.5" />} />
-            <input
-              {...register('schoolLocation')}
-              className={`${inputClass} pl-9`}
-              placeholder="Douala, Cameroon"
-            />
-          </div>
-          {errors.schoolLocation && <p className={errorClass}>· {errors.schoolLocation.message}</p>}
-        </div>
+        <FormField label="School Location" required error={errors.schoolLocation} icon={<MapPin className="w-3.5 h-3.5" />}>
+          <input {...register('schoolLocation')} placeholder="Douala, Cameroon" />
+        </FormField>
 
         {/* Field of study */}
-        <div>
-          <label className={labelClass}>Field of Study / Major <span className="text-violet-500">*</span></label>
-          <div className="relative">
-            <FieldIcon icon={<BookOpen className="w-3.5 h-3.5" />} />
-            <input
-              {...register('fieldOfStudy')}
-              className={`${inputClass} pl-9`}
-              placeholder="Computer Science"
-            />
-          </div>
-          {errors.fieldOfStudy && <p className={errorClass}>· {errors.fieldOfStudy.message}</p>}
-        </div>
+        <FormField label="Field of Study / Major" required error={errors.fieldOfStudy} icon={<BookOpen className="w-3.5 h-3.5" />}>
+          <input {...register('fieldOfStudy')} placeholder="Computer Science" />
+        </FormField>
 
         {/* Level + Program */}
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className={labelClass}>Current Year / Level <span className="text-violet-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<Layers className="w-3.5 h-3.5" />} />
-              <select {...register('level')} className={`${inputClass} pl-9 appearance-none`}>
-                <option value="">Select year</option>
-                <option value="Year 1">Year 1</option>
-                <option value="Year 2">Year 2</option>
-                <option value="Year 3">Year 3</option>
-                <option value="Year 4">Year 4</option>
-              </select>
-            </div>
-            {errors.level && <p className={errorClass}>· {errors.level.message}</p>}
-          </div>
-          <div>
-            <label className={labelClass}>Program <span className="text-violet-500">*</span></label>
-            <div className="relative">
-              <FieldIcon icon={<GraduationCap className="w-3.5 h-3.5" />} />
-              <select {...register('program')} className={`${inputClass} pl-9 appearance-none`}>
-                <option value="HND">HND</option>
-                <option value="Degree">Degree</option>
-                <option value="Masters">Masters</option>
-              </select>
-            </div>
-          </div>
+          <SelectField
+            label="Current Year / Level"
+            required
+            error={errors.level}
+            icon={<Layers className="w-3.5 h-3.5" />}
+            {...register('level')}
+            options={[
+              { value: '', label: 'Select year' },
+              { value: 'Year 1', label: 'Year 1' },
+              { value: 'Year 2', label: 'Year 2' },
+              { value: 'Year 3', label: 'Year 3' },
+              { value: 'Year 4', label: 'Year 4' },
+            ]}
+          />
+          <SelectField
+            label="Program"
+            required
+            error={errors.program}
+            icon={<GraduationCap className="w-3.5 h-3.5" />}
+            {...register('program')}
+            options={[
+              { value: 'HND', label: 'HND' },
+              { value: 'Degree', label: 'Degree' },
+              { value: 'Masters', label: 'Masters' },
+            ]}
+          />
         </div>
 
         {/* Previous internship */}
         <div>
-          <label className={labelClass}>
+          <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
             Previous Internship
             <span className="ml-2 normal-case font-normal text-zinc-300 tracking-normal">optional</span>
           </label>

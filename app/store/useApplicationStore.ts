@@ -1,19 +1,20 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { AboutData, EducationData, InternshipData, UploadsData } from '../types/application';
 
 export interface ApplicationFormData {
-  about?: any;
-  education?: any;
-  internship?: any;
-  uploads?: any;
-  applicationId?: string;   // ← Add this
+  about?: AboutData;
+  education?: EducationData;
+  internship?: InternshipData;
+  uploads?: UploadsData;
+  applicationId?: string;
 }
 
 interface ApplicationState {
   currentStep: number;
   formData: ApplicationFormData;
   setCurrentStep: (step: number) => void;
-  updateFormData: (section: keyof ApplicationFormData, data: any) => void;
+  updateFormData: <K extends keyof ApplicationFormData>(section: K, data: Partial<ApplicationFormData[K]>) => void;
   resetForm: () => void;
 }
 
@@ -23,11 +24,11 @@ export const useApplicationStore = create<ApplicationState>()(
       currentStep: 1,
       formData: {},
       setCurrentStep: (step: number) => set({ currentStep: step }),
-      updateFormData: (section, data) =>
+      updateFormData: <K extends keyof ApplicationFormData>(section: K, data: Partial<ApplicationFormData[K]>) =>
         set((state) => ({
           formData: {
             ...state.formData,
-            [section]: { ...(state.formData[section] || {}), ...data },
+            [section]: { ...(state.formData[section] as object || {}), ...data },
           },
         })),
       resetForm: () => set({ currentStep: 1, formData: {} }),
