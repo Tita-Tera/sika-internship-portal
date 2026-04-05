@@ -11,9 +11,11 @@ export default function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
-                <Briefcase className="w-4 h-4 text-white" />
-              </div>
+              <img
+                src="/teratechcompany.jpg"
+                alt="Tera-Tech Ltd Logo"
+                className="w-8 h-8 rounded-lg object-cover"
+              />
               <span
                 className="font-extrabold text-white text-lg"
                 style={{ fontFamily: 'Syne, sans-serif' }}

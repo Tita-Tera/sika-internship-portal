@@ -1,7 +1,13 @@
+
 @import "tailwindcss";
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-syne {
+  font-family: 'Syne', sans-serif;
+  /* font-weight: 900; */
 }
 
 .step-indicator {

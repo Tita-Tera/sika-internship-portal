@@ -137,9 +137,9 @@ export default function Home() {
           {/* Left */}
           <div>
             <SectionLabel>🇨🇲 Bamenda, Cameroon · Est. 2018</SectionLabel>
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] text-zinc-900 mb-6" style={{ fontFamily: 'Syne, sans-serif' }}>
+            <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] text-zinc-900 mb-6" style={{ fontFamily: 'Syne' }}>
               Launch Your<br />
-              <span className="text-blue-600">Tech Career</span><br />
+              <span className="text-blue-600 font-syne">Tech Career</span><br />
               From Day One.
             </h1>
             <p className="text-lg text-zinc-500 leading-relaxed mb-8 max-w-md">
@@ -217,7 +217,7 @@ export default function Home() {
 
             {/* Stat badge */}
             <div className="absolute top-1/2 left-4 -translate-y-1/2 bg-blue-600 text-white rounded-2xl p-4 shadow-lg">
-              <p className="text-3xl font-extrabold" style={{ fontFamily: 'Syne, sans-serif' }}>95%</p>
+              <p className="text-3xl font-extrabold" style={{ fontFamily: 'Syne' }}>95%</p>
               <p className="text-[11px] text-blue-200 font-medium">hire rate</p>
             </div>
           </div>
@@ -232,7 +232,7 @@ export default function Home() {
               <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 mb-3">
                 {s.icon}
               </div>
-              <p className="text-3xl font-extrabold text-zinc-900 mb-1" style={{ fontFamily: 'Syne, sans-serif' }}>{s.value}</p>
+              <p className="text-3xl font-extrabold text-zinc-900 mb-1" style={{ fontFamily: 'Syne' }}>{s.value}</p>
               <p className="text-xs text-zinc-500 font-medium">{s.label}</p>
             </div>
           ))}
@@ -245,7 +245,7 @@ export default function Home() {
           {/* Left */}
           <div>
             <SectionLabel>About the Programme</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-zinc-900 mb-5 leading-tight" style={{ fontFamily: 'Syne, sans-serif' }}>
+            <h2 className="text-4xl font-extrabold text-zinc-900 mb-5 leading-tight" style={{ fontFamily: 'Syne' }}>
               Built for students<br />who want to build.
             </h2>
             <p className="text-zinc-500 leading-relaxed mb-5">
@@ -291,7 +291,7 @@ export default function Home() {
           <div className="relative z-10 grid md:grid-cols-2 gap-10 items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-3">About Tera-Tech Ltd</p>
-              <h3 className="text-3xl font-extrabold mb-4" style={{ fontFamily: 'Syne, sans-serif' }}>
+              <h3 className="text-3xl font-extrabold mb-4" style={{ fontFamily: 'Syne' }}>
                 We specializes in<br />System Innovation.
               </h3>
               <p className="text-blue-100 leading-relaxed text-sm mb-3">
@@ -323,7 +323,7 @@ export default function Home() {
               ].map((item) => (
                 <div key={item.label} className="bg-white/10 rounded-2xl p-4">
                   <p className="text-[11px] text-blue-200 uppercase tracking-wide font-medium mb-1">{item.label}</p>
-                  <p className="text-lg font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>{item.value}</p>
+                  <p className="text-lg font-bold" style={{ fontFamily: 'Syne' }}>{item.value}</p>
                 </div>
               ))}
             </div>
@@ -336,7 +336,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <SectionLabel>Alumni</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-zinc-900" style={{ fontFamily: 'Syne, sans-serif' }}>
+            <h2 className="text-4xl font-extrabold text-zinc-900" style={{ fontFamily: 'Syne' }}>
               What our interns say
             </h2>
             <p className="text-zinc-500 mt-3 max-w-md mx-auto text-sm">
@@ -398,7 +398,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════ CTA */}
       <section className="py-20 max-w-4xl mx-auto px-6 text-center">
         <SectionLabel>Apply Today</SectionLabel>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-900 mb-5 leading-tight" style={{ fontFamily: 'Syne, sans-serif' }}>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-zinc-900 mb-5 leading-tight" style={{ fontFamily: 'Syne' }}>
           Ready to start<br />building your future?
         </h2>
         <p className="text-zinc-500 mb-8 max-w-lg mx-auto text-sm leading-relaxed">
@@ -417,7 +417,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <SectionLabel>Contact</SectionLabel>
-            <h2 className="text-4xl font-extrabold text-zinc-900" style={{ fontFamily: 'Syne, sans-serif' }}>
+            <h2 className="text-4xl font-extrabold text-zinc-900" style={{ fontFamily: 'Syne' }}>
               Get in touch
             </h2>
             <p className="text-zinc-500 mt-3 max-w-md mx-auto text-sm">
