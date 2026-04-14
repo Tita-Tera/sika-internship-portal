@@ -38,9 +38,9 @@ export type InternshipFormData = z.infer<typeof InternshipSchema>;
 
 
 export const UploadsSchema = z.object({
-  cvUrl: z.string().min(1, 'CV is required'),
-  applicationLetterUrl: z.string().min(1, 'Application letter is required'),
-  passportPhotoUrl: z.string().min(1, 'Passport photo is required'),
+  cvUrl: z.string().optional(),                    // changed
+  applicationLetterUrl: z.string().optional(),     // changed
+  passportPhotoUrl: z.string().optional(),         // changed
   supportLetterUrl: z.string().optional(),
   socialLinks: z.object({
     linkedin: z.string().url('Invalid LinkedIn URL').optional().or(z.literal('')),
@@ -48,5 +48,4 @@ export const UploadsSchema = z.object({
     portfolio: z.string().url('Invalid portfolio URL').optional().or(z.literal('')),
   }),
 });
-
 export type UploadsFormData = z.infer<typeof UploadsSchema>;

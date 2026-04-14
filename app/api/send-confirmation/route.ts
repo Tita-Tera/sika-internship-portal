@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'Tera-Tech Ltd Internships <no-reply@yourdomain.com>', // ← replace with your verified sender
+      from: 'Tera-Tech Ltd Internships <teratechcompanyltd@gmail.com>', // ← replace with your verified sender
       to: email,
       subject: 'Application Received — Tera-Tech Ltd Internship Programme',
       html: `

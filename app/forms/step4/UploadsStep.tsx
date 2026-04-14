@@ -24,14 +24,13 @@ interface UploadCardProps {
   uploaded: boolean;
   uploading?: boolean;
   fileName?: string;
-  required?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClear: () => void;
 }
 
 function UploadCard({
   id, label, hint, accept, icon,
-  uploaded, uploading, fileName, required,
+  uploaded, uploading, fileName,
   onChange, onClear,
 }: UploadCardProps) {
   return (
@@ -77,7 +76,7 @@ function UploadCard({
           <div className="flex-1">
             <p className="text-sm font-medium text-zinc-700">
               {label}
-              {required && <span className="text-amber-500 ml-1">*</span>}
+              {<span className="text-amber-500 ml-1">*</span>}
             </p>
             <p className="text-xs text-zinc-400 mt-0.5">{hint}</p>
           </div>
@@ -234,7 +233,7 @@ export default function UploadsStep() {
 
         {/* Required uploads */}
         <div className="space-y-3">
-          <p className={labelClass}>Required Documents</p>
+          <p className={labelClass}>Upload attachments here</p>
 
           <UploadCard
             id="cv-upload"
@@ -245,7 +244,6 @@ export default function UploadsStep() {
             uploaded={!!watched.cvUrl}
             uploading={uploading.cvUrl}
             fileName={fileNames.cvUrl}
-            required
             onChange={(e) => handleFileChange(e, 'cvUrl')}
             onClear={() => handleClear('cvUrl')}
           />
@@ -260,7 +258,6 @@ export default function UploadsStep() {
             uploaded={!!watched.applicationLetterUrl}
             uploading={uploading.applicationLetterUrl}
             fileName={fileNames.applicationLetterUrl}
-            required
             onChange={(e) => handleFileChange(e, 'applicationLetterUrl')}
             onClear={() => handleClear('applicationLetterUrl')}
           />
@@ -275,7 +272,6 @@ export default function UploadsStep() {
             uploaded={!!watched.passportPhotoUrl}
             uploading={uploading.passportPhotoUrl}
             fileName={fileNames.passportPhotoUrl}
-            required
             onChange={(e) => handleFileChange(e, 'passportPhotoUrl')}
             onClear={() => handleClear('passportPhotoUrl')}
           />
