@@ -17,6 +17,7 @@ export default function AboutStep() {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<AboutFormData>({
     resolver: zodResolver(AboutSchema),
     defaultValues: {
@@ -30,6 +31,7 @@ export default function AboutStep() {
     },
   });
 
+  // Rehydrate whenever formData.about changes (important for going back)
   useEffect(() => {
     if (formData.about && Object.keys(formData.about).length > 0) {
       reset(formData.about as AboutFormData);
@@ -50,8 +52,6 @@ export default function AboutStep() {
       onNext={handleNext}
     >
       <div className="space-y-5">
-
-        {/* Name row */}
         <div className="grid grid-cols-2 gap-4">
           <FormField label="First Name" required error={errors.firstName} icon={<User className="w-3.5 h-3.5" />}>
             <input {...register('firstName')} placeholder="John" />
@@ -65,12 +65,10 @@ export default function AboutStep() {
           <input {...register('email')} type="email" placeholder="you@example.com" />
         </FormField>
 
-        {/* Nationality */}
         <FormField label="Nationality" required error={errors.nationality} icon={<Globe className="w-3.5 h-3.5" />}>
           <input {...register('nationality')} placeholder="e.g. Cameroonian" />
         </FormField>
 
-        {/* Phone + DOB */}
         <div className="grid grid-cols-2 gap-4">
           <FormField label="WhatsApp Phone" required error={errors.phone} icon={<Phone className="w-3.5 h-3.5" />}>
             <input {...register('phone')} type="tel" placeholder="+237 6XX XXX XXX" />
@@ -80,7 +78,6 @@ export default function AboutStep() {
           </FormField>
         </div>
 
-        {/* Language + Gender */}
         <div className="grid grid-cols-2 gap-4">
           <SelectField
             label="Preferred Language"
@@ -106,7 +103,6 @@ export default function AboutStep() {
           />
         </div>
 
-        {/* Helper note */}
         <p className="text-[11px] text-zinc-400 pt-1">
           Fields marked <span className="text-blue-500 font-semibold">*</span> are required.
         </p>

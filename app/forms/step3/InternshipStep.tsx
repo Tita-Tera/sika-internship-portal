@@ -10,16 +10,9 @@ import { Briefcase, BarChart2, Clock, CalendarCheck, FileText } from 'lucide-rea
 import { SelectField, inputClass } from '../../components/form/FormField';
 
 const specialties = [
-  'Frontend Development',
-  'Backend Node.js',
-  'Backend PHP',
-  'UI/UX Design',
-  'Digital Marketing',
-  'Mobile Development',
-  'Data Science',
-  'DevOps',
-  'Cybersecurity',
-  'Other',
+  'Frontend Development', 'Backend Node.js', 'Backend PHP', 'UI/UX Design',
+  'Digital Marketing', 'Mobile Development', 'Data Science', 'DevOps',
+  'Cybersecurity', 'Other',
 ];
 
 export default function InternshipStep() {
@@ -41,6 +34,7 @@ export default function InternshipStep() {
     },
   });
 
+  // Rehydrate when returning to this step
   useEffect(() => {
     if (formData.internship && Object.keys(formData.internship).length > 0) {
       reset(formData.internship as InternshipFormData);
@@ -62,7 +56,6 @@ export default function InternshipStep() {
     >
       <div className="space-y-5">
 
-        {/* Specialty */}
         <SelectField
           label="Specialty / Role"
           required
@@ -75,7 +68,6 @@ export default function InternshipStep() {
           ]}
         />
 
-        {/* Experience + Duration */}
         <div className="grid grid-cols-2 gap-4">
           <SelectField
             label="Experience Level"
@@ -107,7 +99,6 @@ export default function InternshipStep() {
           />
         </div>
 
-        {/* Availability */}
         <SelectField
           label="Availability"
           required
@@ -123,7 +114,6 @@ export default function InternshipStep() {
           ]}
         />
 
-        {/* Work experience */}
         <div>
           <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
             Relevant Work / Project Experience <span className="text-emerald-500">*</span>

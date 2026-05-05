@@ -29,6 +29,7 @@ export default function EducationStep() {
     },
   });
 
+  // Rehydrate form whenever we return to this step
   useEffect(() => {
     if (formData.education && Object.keys(formData.education).length > 0) {
       reset(formData.education as EducationFormData);
@@ -50,22 +51,18 @@ export default function EducationStep() {
     >
       <div className="space-y-5">
 
-        {/* School name */}
         <FormField label="School / University" required error={errors.schoolName} icon={<GraduationCap className="w-3.5 h-3.5" />}>
           <input {...register('schoolName')} placeholder="University of Douala" />
         </FormField>
 
-        {/* Location */}
         <FormField label="School Location" required error={errors.schoolLocation} icon={<MapPin className="w-3.5 h-3.5" />}>
           <input {...register('schoolLocation')} placeholder="Douala, Cameroon" />
         </FormField>
 
-        {/* Field of study */}
         <FormField label="Field of Study / Major" required error={errors.fieldOfStudy} icon={<BookOpen className="w-3.5 h-3.5" />}>
           <input {...register('fieldOfStudy')} placeholder="Computer Science" />
         </FormField>
 
-        {/* Level + Program */}
         <div className="grid grid-cols-2 gap-4">
           <SelectField
             label="Current Year / Level"
@@ -95,7 +92,6 @@ export default function EducationStep() {
           />
         </div>
 
-        {/* Previous internship */}
         <div>
           <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-widest mb-1.5">
             Previous Internship
