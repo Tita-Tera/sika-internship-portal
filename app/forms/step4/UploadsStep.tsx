@@ -228,23 +228,31 @@ export default function UploadsStep() {
           />
         </div>
 
-        {/* Social Links */}
+                {/* Social Links */}
         <div className="pt-4 border-t border-zinc-100 space-y-4">
           <div className="flex items-center gap-2">
-            <LinkIcon className="w-4 h-4 text-zinc-400" />
-            <p className={labelClass}>Online Profiles <span className="font-normal text-zinc-300">— optional</span></p>
+            <LinkIcon className="w-3.5 h-3.5 text-zinc-400" />
+            <p className={`${labelClass} mb-0`}>
+              Online Profiles <span className="normal-case font-normal tracking-normal text-zinc-300">— optional</span>
+            </p>
           </div>
-          {['linkedin', 'github', 'portfolio'].map((key) => (
-            <div key={key} className="flex items-center gap-3">
-              <span className="text-xs font-medium text-zinc-400 w-20 capitalize">{key}</span>
-              <input
-                {...register(`socialLinks.${key}` as const)}
-                type="url"
-                className={inputClass}
-                placeholder={`https://${key}.com/yourprofile`}
-              />
-            </div>
-          ))}
+          <div className="grid grid-cols-1 gap-3">
+            {[
+              { field: 'socialLinks.linkedin' as const, placeholder: 'https://linkedin.com/in/teratechcompany', label: 'LinkedIn' },
+              { field: 'socialLinks.github' as const, placeholder: 'https://github.com/teratechcompany', label: 'GitHub' },
+              { field: 'socialLinks.portfolio' as const, placeholder: 'https://teratechcompany.tech', label: 'Portfolio' },
+            ].map(({ field, placeholder, label }) => (
+              <div key={field} className="flex items-center gap-3">
+                <span className="text-xs font-medium text-zinc-400 w-16 shrink-0">{label}</span>
+                <input
+                  {...register(field)}
+                  type="url"
+                  className={inputClass}
+                  placeholder={placeholder}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <p className="text-[11px] text-zinc-400">
