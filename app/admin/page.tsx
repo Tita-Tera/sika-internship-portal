@@ -70,6 +70,27 @@ export default function AdminDashboard() {
     }
   };
 
+  const deleteApplication = async (id: string) => {
+    const confirmed = window.confirm(
+      "Delete this submission permanently? This cannot be undone."
+    );
+    if (!confirmed) return;
+
+    const { error } = await supabase
+      .from("applications")
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error(error);
+      alert("Failed to delete the application. Please try again.");
+      return;
+    }
+
+    setSelectedApp(null);
+    fetchApplications();
+  };
+
   // Login Screen
   if (!isAuthenticated) {
     return (
@@ -407,6 +428,12 @@ export default function AdminDashboard() {
                     </button>
                   ),
                 )}
+                <button
+                  onClick={() => deleteApplication(selectedApp.id)}
+                  className="flex-1 sm:flex-none py-4 px-6 rounded-2xl font-medium transition bg-red-600 hover:bg-red-700 text-white"
+                >
+                  Delete Submission
+                </button>
               </div>
             </div>
           </div>
